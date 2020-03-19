@@ -8,7 +8,7 @@
 4.[当有代码push 会自动触发。在目标服务器中执行[3]中配置的步骤](#4)<br>
 
 
-### <h6 id='1'>安装gitlab-runner
+##### <h6 id='1'>安装gitlab-runner
 #### linux 安装
 ```
 #下载包
@@ -23,14 +23,14 @@ sudo useradd --comment 'GitLab Runner' --create-home gitlab-runner --shell /bin/
 sudo gitlab-runner install --user=gitlab-runner --working-directory=/home/gitlab-runner
 sudo gitlab-runner start
 ```
-### <h6 id='2'>gitlab-runner 注册
+#### <h6 id='2'>gitlab-runner 注册
 通过命令，注册服务。并配置 “连接、token、描述、tag”
 ```
 gitlab-runner register 
 ```
 
 
-### <h6 id='3'>.gitlab-ci.yml
+#### <h6 id='3'>.gitlab-ci.yml
 
 ```
 stages:
@@ -48,9 +48,9 @@ job 1:
     - /opt/application/startJar.sh target/demo.jar &
 ```
 
-#### stage---步骤, script---脚本 <br>
+### stage---步骤, script---脚本 <br>
 
-##### 此配置项执行为：开始执行，maven 打包,并执行jar 包。（此处脚本可以是先清除端口占用的服务，<br>
-##### 然后再启动服务，但是实际测试中服务会处于pending状态。）
+## 此配置项执行为：开始执行，maven 打包,并执行jar 包。（此处脚本可以是先清除端口占用的服务，<br>
+## 然后再启动服务，但是实际测试中服务会处于pending状态。）
 
  
