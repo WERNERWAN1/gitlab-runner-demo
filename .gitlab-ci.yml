@@ -1,0 +1,42 @@
+stages:
+  - .pre
+  - run
+
+job 0:
+  stage: .pre
+  script: echo 'start'
+
+job 1:
+  stage: run
+  script:
+    - mvn clean package -Dmaven.test.skip=true
+    - /opt/application/startJar.sh target/demo.jar &
+
+
+#clean:
+#  stage: clean
+#  script:
+  #清除启用了的端口应用
+
+    #- /opt/application/clean.sh
+    #- /opt/application/clean.sh
+    #- chmod 777 clean.sh
+    #- chown gitlab-runner clean.sh
+    #- ./clean.sh
+
+#build:
+#  stage: build
+#  script:
+    #- chmod +s /home/gitlab-runner/gitlab_shell/clean_demo.sh
+    #- nohup /home/gitlab-runner/gitlab_shell/clean_demo.sh &
+    #- mvn clean package -Dmaven.test.skip=true
+    #- cat generated-bash-script | /home/gitlab-runner/gitlab_shell/clean_demo.sh --login
+   # - kill -9 $(netstat -nlp | grep :8803 | awk '{print $7}' | awk -F"/" '{ print $1 }')
+    #- /opt/application/startJar.sh target/demo.jar &
+    #执行命令
+    #- nohup java -jar -Xms1024M -Xmx1024M target/demo.jar &
+#
+#run:
+#  stage: run
+#  script:
+#    - echo 'enjoy!!'

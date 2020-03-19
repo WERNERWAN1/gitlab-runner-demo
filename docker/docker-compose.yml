@@ -1,0 +1,7 @@
+version: '3.1'
+services:
+  itoken-config:
+    restart: always
+    image: demo1
+    ports:
+      - 8803:8803
